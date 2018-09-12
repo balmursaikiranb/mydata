@@ -1,0 +1,46 @@
+
+SQL> select student_name,to_char(student_dob,'month,dd yyyy') as dob from student_master where to_char(student_dob,'DAY') like '%SUNDAY%' or to_char(student_dob,'DAY')
+  2  like '%SATURDAY%';
+
+STUDENT_NAME
+--------------------------------------------------
+DOB
+--------------------------------------------
+Ravi
+november ,01 1981
+
+Raj
+january  ,14 1979
+
+Arvind
+january  ,15 1983
+
+
+STUDENT_NAME
+--------------------------------------------------
+DOB
+--------------------------------------------
+Mehul
+january  ,17 1982
+
+Vijay
+january  ,19 1980
+
+Rajat
+january  ,20 1980
+
+
+STUDENT_NAME
+--------------------------------------------------
+DOB
+--------------------------------------------
+Ramesh
+december ,27 1980
+
+Amit Raj
+september,28 1980
+
+
+8 rows selected.
+
+SQL>

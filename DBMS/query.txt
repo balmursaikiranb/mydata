@@ -1,0 +1,77 @@
+select sysdate from dual;
+select ADD_Months(sysdate,10) from dual;
+select MONTHS_BETWEEN(sysdate,'01=sep-95') from dual;
+select LAST_DAY(sysdate) from dual;
+select NEXT_DAY(sysdate,'sunday') from dual;
+select sessiontimezone,current_date,current_timestamp from dual;
+select extract(year from sysdate) from dual;
+select extract(month from date '2011-04-01') from dual;
+select extract(year from student_dob) from student_master;
+select staff_name,trunc(sysdate)-trunc(hiredate) from staff_master;
+select staff_name,trunc(sysdate)-trunc(27-07-2018) from staff_master;
+select trunc(sysdate)-trunc(27-07-2018) from dual;
+select trunc(12-07-2018)-trunc(27-07-2018) from dual;
+select trunc(26-07-2018)-trunc(12-07-2018) from dual;
+Select student_code, round((sysdate-student_dob) / 365.25) As Age from student_master;
+Select student_code, extract(year from student_dob)-extract(year from sysdate) As Age from student_master;
+select staff_code,hiredate from staff_master where hiredate=to_date('september 08,1981','Month DD,YYYY');
+select staff_code,hiredate from staff_master where hiredate=to_date('January-15-2003','Month DD,YYYY');
+select to_timestamp(sysdate,'DD-MM-YY') from dual;
+select student_code,nvl(student_address,'not filled') from student_master;
+select student_code,nvl2(student_address,'filled','notfilled') from student_master;
+select student_code ,(book_actual_return_date-book_expected_return_date) as Payable_days from book_transactions where book_code=10000004;
+
+
+create table employee152604
+(
+eid int,
+ename varchar(15),
+age int
+);
+
+
+create table address152604
+(
+eid int,
+city varchar(15),
+state varchar(15)
+);
+
+
+
+insert into employee152604 values(1,'rajiv',30);
+insert into employee152604 values(2,'kiran',30);
+insert into employee152604 values(3,'bharath',30);
+insert into employee152604 values(4,'shankar',30);
+
+insert into address152604 values(1,'hyderabad','telangana');
+insert into address152604 values(2,'amaravathi','ap');
+insert into address152604 values(3,'chennai','tn');
+INSERT INTO ADDRESS152604 VALUES(5,'CULCUTTA','WB');
+
+
+
+SELECT E.EID,E.ENAME,A.CITY,A.STATE FROM EMPLOYEE152604 AS E,ADDRESS152604 AS A WHERE E.EID=A.EID;
+						OR
+SELECT E.EID,E.ENAME,A.CITY,A.STATE FROM EMPLOYEE152604 AS E JOIN ADDRESS152604 AS A ON E.EID=A.EID;
+						or
+SELECT E.EID,E.ENAME,A.CITY,A.STATE FROM EMPLOYEE152604 E JOIN ADDRESS152604 A ON E.EID=A.EID;
+SELECT E.EID,E.ENAME,A.CITY,A.STATE FROM EMPLOYEE152604 E LEFT JOIN ADDRESS152604 A ON E.EID=A.EID;
+SELECT E.EID,E.ENAME,A.CITY,A.STATE FROM EMPLOYEE152604 E RIGHT JOIN ADDRESS152604 A ON E.EID=A.EID;
+SELECT E.EID,E.ENAME,A.CITY,A.STATE FROM EMPLOYEE152604 E FULL JOIN ADDRESS152604 A ON E.EID=A.EID;
+
+create table STUDENT152604
+(
+SNAME varchar(15)
+);
+create table SUBJECTS152604
+(
+SUBNAME VARCHAR(15)
+);
+
+insert into STUDENT152604 values('RAJIV');
+insert into STUDENT152604 values('KIRAN');
+insert into STUDENT152604 values('BHARATH');
+
+insert into SUBJECTS152604 values('ENGLISH');
+insert into SUBJECTS152604 values('MATHS');

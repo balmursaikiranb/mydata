@@ -1,0 +1,17 @@
+
+SQL> select staff_code,staff_name,dept_code FROM staff_master where round((sysdate-hiredate) / 365.25)>=15 order by hiredate;
+
+STAFF_CODE STAFF_NAME                                          DEPT_CODE
+---------- -------------------------------------------------- ----------
+    100005 John                                                       10
+    100004 Anil                                                       20
+    100006 Allen                                                      30
+    100010 Ram                                                        30
+    100003 Mohan                                                      10
+    100002 Shyam                                                      20
+    100007 Smith                                                      20
+    100008 Raviraj                                                    40
+    100001 Arvind                                                     30
+    100009 Rahul                                                      20
+
+10 rows selected.

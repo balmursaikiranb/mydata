@@ -1,0 +1,54 @@
+
+SQL> SELECT LOWER('SAIKIRAN') FROM DUAL;
+
+LOWER('S
+--------
+saikiran
+
+SQL> SELECT upper('saikiran') FROM DUAL;
+
+UPPER('S
+--------
+SAIKIRAN
+
+SQL> SELECT initcap('saikiran') FROM DUAL;
+
+INITCAP(
+--------
+Saikiran
+
+SQL> SELECT concat('saikiran','balmur') FROM DUAL;
+
+CONCAT('SAIKIR
+--------------
+saikiranbalmur
+
+SQL> SELECT substr('saikiran',3,7) FROM DUAL;
+
+SUBSTR
+------
+ikiran
+
+SQL> SELECT substr('saikiran',4,7) FROM DUAL;
+
+SUBST
+-----
+kiran
+
+SQL> SELECT ltrim('   saikiran     ') FROM DUAL;
+
+LTRIM('SAIKIR
+-------------
+saikiran
+
+SQL> SELECT rtrim('   saikiran     ') FROM DUAL;
+
+RTRIM('SAIK
+-----------
+   saikiran
+
+SQL> SELECT length('   saikiran     ') FROM DUAL;
+
+LENGTH('SAIKIRAN')
+------------------
+                16

@@ -1,0 +1,433 @@
+
+SQL> select * from student_master;
+
+STUDENT_CODE STUDENT_NAME                                        DEPT_CODE
+------------ -------------------------------------------------- ----------
+STUDENT_D
+---------
+STUDENT_ADDRESS
+--------------------------------------------------------------------------------
+
+        1001 Amit                                                       10
+11-JAN-80
+chennai
+
+        1002 Ravi                                                       10
+01-NOV-81
+New Delhi
+
+STUDENT_CODE STUDENT_NAME                                        DEPT_CODE
+------------ -------------------------------------------------- ----------
+STUDENT_D
+---------
+STUDENT_ADDRESS
+--------------------------------------------------------------------------------
+
+
+        1003 Ajay                                                       20
+13-JAN-82
+
+
+        1004 Raj                                                        30
+14-JAN-79
+
+STUDENT_CODE STUDENT_NAME                                        DEPT_CODE
+------------ -------------------------------------------------- ----------
+STUDENT_D
+---------
+STUDENT_ADDRESS
+--------------------------------------------------------------------------------
+
+Mumbai
+
+        1005 Arvind                                                     40
+15-JAN-83
+Bangalore
+
+        1006 Rahul                                                      50
+
+STUDENT_CODE STUDENT_NAME                                        DEPT_CODE
+------------ -------------------------------------------------- ----------
+STUDENT_D
+---------
+STUDENT_ADDRESS
+--------------------------------------------------------------------------------
+
+16-JAN-81
+Delhi
+
+        1007 Mehul                                                      20
+17-JAN-82
+Chennai
+
+
+STUDENT_CODE STUDENT_NAME                                        DEPT_CODE
+------------ -------------------------------------------------- ----------
+STUDENT_D
+---------
+STUDENT_ADDRESS
+--------------------------------------------------------------------------------
+
+        1008 Dev                                                        10
+11-MAR-81
+Bangalore
+
+        1009 Vijay                                                      30
+19-JAN-80
+Bangalore
+
+STUDENT_CODE STUDENT_NAME                                        DEPT_CODE
+------------ -------------------------------------------------- ----------
+STUDENT_D
+---------
+STUDENT_ADDRESS
+--------------------------------------------------------------------------------
+
+
+        1010 Rajat                                                      40
+20-JAN-80
+Bangalore
+
+        1011 Sunder                                                     50
+21-JAN-80
+
+STUDENT_CODE STUDENT_NAME                                        DEPT_CODE
+------------ -------------------------------------------------- ----------
+STUDENT_D
+---------
+STUDENT_ADDRESS
+--------------------------------------------------------------------------------
+
+Chennai
+
+        1012 Rajesh                                                     30
+22-JAN-80
+
+
+        1013 Anil                                                       20
+
+STUDENT_CODE STUDENT_NAME                                        DEPT_CODE
+------------ -------------------------------------------------- ----------
+STUDENT_D
+---------
+STUDENT_ADDRESS
+--------------------------------------------------------------------------------
+
+23-JAN-80
+Chennai
+
+        1014 Sunil                                                      10
+15-FEB-85
+
+
+
+STUDENT_CODE STUDENT_NAME                                        DEPT_CODE
+------------ -------------------------------------------------- ----------
+STUDENT_D
+---------
+STUDENT_ADDRESS
+--------------------------------------------------------------------------------
+
+        1015 Kapil                                                      40
+18-MAR-81
+Mumbai
+
+        1016 Ashok                                                      40
+26-NOV-80
+
+
+STUDENT_CODE STUDENT_NAME                                        DEPT_CODE
+------------ -------------------------------------------------- ----------
+STUDENT_D
+---------
+STUDENT_ADDRESS
+--------------------------------------------------------------------------------
+
+
+        1017 Ramesh                                                     30
+27-DEC-80
+
+
+        1018 Amit Raj                                                   50
+28-SEP-80
+
+STUDENT_CODE STUDENT_NAME                                        DEPT_CODE
+------------ -------------------------------------------------- ----------
+STUDENT_D
+---------
+STUDENT_ADDRESS
+--------------------------------------------------------------------------------
+
+New Delhi
+
+        1019 Ravi Raj                                                   50
+29-MAY-81
+New Delhi
+
+        1020 Amrit                                                      10
+
+STUDENT_CODE STUDENT_NAME                                        DEPT_CODE
+------------ -------------------------------------------------- ----------
+STUDENT_D
+---------
+STUDENT_ADDRESS
+--------------------------------------------------------------------------------
+
+11-NOV-80
+
+
+        1021 Sumit                                                      20
+01-JAN-80
+Chennai
+
+
+21 rows selected.
+
+SQL> select student_code,student_name from student_master;
+
+STUDENT_CODE STUDENT_NAME
+------------ --------------------------------------------------
+        1001 Amit
+        1002 Ravi
+        1003 Ajay
+        1004 Raj
+        1005 Arvind
+        1006 Rahul
+        1007 Mehul
+        1008 Dev
+        1009 Vijay
+        1010 Rajat
+        1011 Sunder
+
+STUDENT_CODE STUDENT_NAME
+------------ --------------------------------------------------
+        1012 Rajesh
+        1013 Anil
+        1014 Sunil
+        1015 Kapil
+        1016 Ashok
+        1017 Ramesh
+        1018 Amit Raj
+        1019 Ravi Raj
+        1020 Amrit
+        1021 Sumit
+
+21 rows selected.
+
+
+
+
+SQL> select count(*) from student_master;
+
+  COUNT(*)
+----------
+        21
+
+SQL> select student_code,student_name,student_dob from student_master where dept_code=10;
+
+STUDENT_CODE STUDENT_NAME                                       STUDENT_D
+------------ -------------------------------------------------- ---------
+        1001 Amit                                               11-JAN-80
+        1002 Ravi                                               01-NOV-81
+        1008 Dev                                                11-MAR-81
+        1014 Sunil                                              15-FEB-85
+        1020 Amrit                                              11-NOV-80
+
+SQL> select count(*) count from student_master;
+
+     COUNT
+----------
+        21
+
+SQL> select student_dob as "Date of Birth" from student_master where dept_code=10;
+
+Date of B
+---------
+11-JAN-80
+01-NOV-81
+11-MAR-81
+15-FEB-85
+11-NOV-80
+
+SQL> select student_dob  "Date of Birth" from student_master where dept_code=10;
+
+Date of B
+---------
+11-JAN-80
+01-NOV-81
+11-MAR-81
+15-FEB-85
+11-NOV-80
+
+
+
+
+
+SQL> select student_code,student_name,student_dob from student_master where STUDENT_NAME='Sunil';
+
+STUDENT_CODE STUDENT_NAME                                       STUDENT_D
+------------ -------------------------------------------------- ---------
+        1014 Sunil                                              15-FEB-85
+
+SQL> select student_code,student_name,student_dob from student_master where STUDENT_code between 1001 and 1006;
+
+STUDENT_CODE STUDENT_NAME                                       STUDENT_D
+------------ -------------------------------------------------- ---------
+        1001 Amit                                               11-JAN-80
+        1002 Ravi                                               01-NOV-81
+        1003 Ajay                                               13-JAN-82
+        1004 Raj                                                14-JAN-79
+        1005 Arvind                                             15-JAN-83
+        1006 Rahul                                              16-JAN-81
+
+6 rows selected.
+
+SQL> select student_code,student_name,student_dob from student_master where STUDENT_code=1001 and student_code=1006;
+
+no rows selected
+
+SQL> select student_code,student_name,student_dob from student_master where STUDENT_code=1001 or student_code=1006;
+
+STUDENT_CODE STUDENT_NAME                                       STUDENT_D
+------------ -------------------------------------------------- ---------
+        1001 Amit                                               11-JAN-80
+        1006 Rahul                                              16-JAN-81
+
+
+
+
+SQL> SELECT STAFF_CODE,STAFF_NAME FROM STAFF_MASTER WHERE STAFF_DOB BETWEEN '01-jAN-1980' AND '31-Jan-1980';
+
+STAFF_CODE STAFF_NAME
+---------- --------------------------------------------------
+    100001 Arvind
+    100006 Allen
+
+SQL> SELECT STAFF_CODE,STAFF_NAME staff_dob FROM STAFF_MASTER WHERE STAFF_DOB BETWEEN '01-jAN-1980' AND '31-Jan-1980';
+
+STAFF_CODE STAFF_DOB
+---------- --------------------------------------------------
+    100001 Arvind
+    100006 Allen
+
+SQL> SELECT STAFF_CODE,STAFF_NAME staff_dob FROM STAFF_MASTER WHERE STAFF_DOB BETWEEN '01-jAN-1980' AND '31-Jan-1980';
+
+STAFF_CODE STAFF_DOB
+---------- --------------------------------------------------
+    100001 Arvind
+    100006 Allen
+
+
+
+
+SQL> select dept_code from department_master where dept_name IN('Computer Science','Mechanics');
+
+ DEPT_CODE
+----------
+        10
+        40
+
+SQL> select * from department_master;
+
+ DEPT_CODE DEPT_NAME
+---------- --------------------------------------------------
+        10 Computer Science
+        20 Electricals
+        30 Electronics
+        40 Mechanics
+        50 Robotics
+
+
+
+
+SQL> SELECT book_code,book_name FROM book_master WHERE book_pub_author LIKE '%Kanetkar%';
+
+ BOOK_CODE BOOK_NAME
+---------- --------------------------------------------------
+  10000001 Let Us C++
+  10000006 Let Us C
+
+SQL> SELECT book_code,book_name FROM book_master;
+
+ BOOK_CODE BOOK_NAME
+---------- --------------------------------------------------
+  10000001 Let Us C++
+  10000002 Mastersing VC++
+  10000003 JAVA Complete Reference
+  10000004 J2EE Complete Reference
+  10000005 Relational DBMS
+  10000006 Let Us C
+  10000007 Intoduction To Algorithams
+  10000008 Computer Networks
+  10000009 Introduction to O/S
+
+9 rows selected.
+
+SQL> SELECT book_code,book_name book_pub_author FROM book_master;
+
+ BOOK_CODE BOOK_PUB_AUTHOR
+---------- --------------------------------------------------
+  10000001 Let Us C++
+  10000002 Mastersing VC++
+  10000003 JAVA Complete Reference
+  10000004 J2EE Complete Reference
+  10000005 Relational DBMS
+  10000006 Let Us C
+  10000007 Intoduction To Algorithams
+  10000008 Computer Networks
+  10000009 Introduction to O/S
+
+9 rows selected.
+
+
+
+
+SQL>  SELECT staff_code,staff_name,staff_sal FROM staff_master where dept_code=10 AND staff_dob>'01-Jan-1945';
+
+STAFF_CODE STAFF_NAME                                          STAFF_SAL
+---------- -------------------------------------------------- ----------
+    100003 Mohan                                                   24000
+    100005 John                                                    32000
+
+
+
+
+SQL> SELECT book_code FROM book_master WHERE book_pub_author LIKE '%Kanetkar%' OR book_name LIKE '%Pointers%';
+
+ BOOK_CODE
+----------
+  10000001
+  10000006
+
+SQL> SELECT book_code FROM book_master WHERE book_pub_author LIKE '%Kanetkar%';
+
+ BOOK_CODE
+----------
+  10000001
+  10000006
+
+SQL> SELECT book_code FROM book_master WHERE book_pub_author LIKE '%Kanetkar%' OR book_name LIKE '%DBMS%';
+
+ BOOK_CODE
+----------
+  10000001
+  10000005
+  10000006
+
+
+
+
+SQL> SELECT staff_code,staff_name FROM staff_master WHERE dept_code NOT IN(10,20);
+
+STAFF_CODE STAFF_NAME
+---------- --------------------------------------------------
+    100001 Arvind
+    100006 Allen
+    100008 Raviraj
+    100010 Ram
+
+SQL> select student_code from student_master where dept_code IS NULL;
+
+no rows selected
+
+SQL>

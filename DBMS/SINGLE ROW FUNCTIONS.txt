@@ -1,0 +1,80 @@
+
+
+SQL> SELECT TRUNC(25.33537,2) FROM DUAL;
+
+TRUNC(25.33537,2)
+-----------------
+            25.33
+
+SQL> SELECT ROUND(25.33537,2) FROM DUAL;
+
+ROUND(25.33537,2)
+-----------------
+            25.34
+
+SQL> SELECT ROUND(25.58,2) FROM DUAL;
+
+ROUND(25.58,2)
+--------------
+         25.58
+
+SQL> SELECT CEIL(25.58,2) FROM DUAL;
+SELECT CEIL(25.58,2) FROM DUAL
+       *
+ERROR at line 1:
+ORA-00909: invalid number of arguments
+
+
+SQL> SELECT CEIL(25.58) FROM DUAL;
+
+CEIL(25.58)
+-----------
+         26
+
+SQL> SELECT FLOOR(25.58) FROM DUAL;
+
+FLOOR(25.58)
+------------
+          25
+
+SQL> SELECT ABS(-25) FROM DUAL;
+
+  ABS(-25)
+----------
+        25
+
+SQL> SELECT POWER(25,2) FROM DUAL;
+
+POWER(25,2)
+-----------
+        625
+
+SQL> SELECT SQRT(25) FROM DUAL;
+
+  SQRT(25)
+----------
+         5
+
+SQL> SELECT SIGN(25) FROM DUAL;
+
+  SIGN(25)
+----------
+         1
+
+SQL> SELECT MOD(25,5) FROM DUAL;
+
+ MOD(25,5)
+----------
+         0
+
+SQL> SELECT ROUND(25.70,2) FROM DUAL;
+
+ROUND(25.70,2)
+--------------
+          25.7
+
+SQL> SELECT ROUND(25.70) FROM DUAL;
+
+ROUND(25.70)
+------------
+          26

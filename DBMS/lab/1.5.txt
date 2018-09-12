@@ -1,0 +1,10 @@
+
+SQL> select staff_name from staff_master where staff_name like '%a%';
+
+STAFF_NAME
+--------------------------------------------------
+Shyam
+Mohan
+Raviraj
+Rahul
+Ram

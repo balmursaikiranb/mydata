@@ -1,0 +1,15 @@
+
+SQL> select * from book_master where book_pub_year between 2001 and 2004 or book_name like '%&%';
+
+ BOOK_CODE BOOK_NAME                                          BOOK_PUB_YEAR
+---------- -------------------------------------------------- -------------
+BOOK_PUB_AUTHOR
+--------------------------------------------------
+  10000003 JAVA Complete Reference                                     2004
+H.Schild
+
+  10000007 Intoduction To Algorithams                                  2001
+Cormen
+
+  10000009 Introduction to O/S                                         2001
+Millan
