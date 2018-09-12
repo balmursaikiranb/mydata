@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<Script type="text/javascript">
+function validate1()
+{
+var name=document.getElementById("txtName").value;
+var mobile=document.getElementById("txtMobile").value;
+var username=document.getElementById("txtUsername").value;
+if(!(name.equals("[a-zA-Z]+"))
+		{
+	alert("invalid name");
+	return false;
+		}
+else if(!(mobile.equals("//d{10}")))
+	{
+	alert("invalid mobile");
+	return false;
+	}
+else if(!(name.equals("[a-zA-Z]+"))
+		{
+	alert("invalid user name");
+	return false;
+		}
+else
+	{
+	return true;
+	}
+}
+</Script>
+</head>
+<body>
+<form method="Get" action="user.do">
+Name:<input type="text" id="txtName" name="txtName"/><br/>
+Mobile:<input type="text" id="txtMobile" name="txtMobile"/><br/>
+Email Id:<input type="email" id="txtEmail" name="txtEmail"/><br/>
+User Name:<input type="text" id="txtUsername" name="txtUsername"/><br/>
+Gender:<br/>
+Male:<input type="radio" id="radioGender" name="radioGender" value="male"/>
+Female:<input type="radio" id="radioGender" name="radioGender" value="female"/><br/>
+Courses:<br/>
+<input type="checkbox" id="checkCourse" name="checkCourse" value="Dot_Net"/>Dot Net
+<input type="checkbox" id="checkCourse" name="checkCourse" value="Java"/>Java
+<input type="checkbox" id="checkCourse" name="checkCourse" value="Python"/>Python<br/>
+Cities:<select name="cities">
+<option value="Hyderabad">Hyderabad</option>
+<option value="Bangalore">Bangalore</option>
+<option value="Chennai">Chennai</option>
+<option value="Mumbai">Mumbai</option>
+</select>
+<input type="button" id="btn" name="btn" value="validate" onClick="return validate1();"/>
+<input type="submit" id="btn1" name="btn1" value="Store"/>
+</form>
+
+</body>
+</html>
