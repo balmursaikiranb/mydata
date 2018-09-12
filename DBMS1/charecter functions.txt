@@ -1,0 +1,86 @@
+
+SQL> SELECT LOWER('SAIKIRAN') FROM DUAL;
+
+LOWER('S
+--------
+saikiran
+
+SQL> SELECT upper('saikiran') FROM DUAL;
+
+UPPER('S
+--------
+SAIKIRAN
+
+SQL> SELECT initcap('saikiran') FROM DUAL;
+
+INITCAP(
+--------
+Saikiran
+
+SQL> SELECT concat('saikiran','balmur') FROM DUAL;
+
+CONCAT('SAIKIR
+--------------
+saikiranbalmur
+
+SQL> SELECT substr('saikiran',3,7) FROM DUAL;
+
+SUBSTR
+------
+ikiran
+
+SQL> SELECT substr('saikiran',4,7) FROM DUAL;
+
+SUBST
+-----
+kiran
+
+SQL> SELECT ltrim('   saikiran     ') FROM DUAL;
+
+LTRIM('SAIKIR
+-------------
+saikiran
+
+SQL> SELECT rtrim('   saikiran     ') FROM DUAL;
+
+RTRIM('SAIK
+-----------
+   saikiran
+
+SQL> SELECT length('   saikiran     ') FROM DUAL;
+
+LENGTH('SAIKIRAN')
+------------------
+                16
+
+SQL> SELECT lpad('kkkkk',10,'sai') FROM DUAL;
+
+LPAD('KKKK
+----------
+saisakkkkk
+
+SQL> SELECT rpad('kkkkk',8,'sai') FROM DUAL;
+
+RPAD('KK
+--------
+kkkkksai
+
+
+SQL> SELECT replace('saikiran','kiran','dfasaishkirangf') FROM DUAL;
+
+REPLACE('SAIKIRAN'
+------------------
+saidfasaishkirangf
+
+SQL> SELECT instr('dfasaishkirangf',f) FROM DUAL;
+SELECT instr('dfasaishkirangf',f) FROM DUAL
+                               *
+ERROR at line 1:
+ORA-00904: "F": invalid identifier
+
+
+SQL> SELECT instr('dfasaishkirangf','f') FROM DUAL;
+
+INSTR('DFASAISHKIRANGF','F')
+----------------------------
+                           2

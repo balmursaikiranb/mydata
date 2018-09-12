@@ -1,0 +1,589 @@
+
+SQL> select sysdate from dual;
+
+SYSDATE
+---------
+12-JUL-18
+
+SQL> select ADD_Months(sysdate,10) from dual;
+
+ADD_MONTH
+---------
+12-MAY-19
+
+SQL> select MONTHS_BETWEEN(sysdate,'01=sep-95') from dual;
+
+MONTHS_BETWEEN(SYSDATE,'01=SEP-95')
+-----------------------------------
+                          274.37542
+
+SQL> select LAST_DAY(sysdate) from dual;
+
+LAST_DAY(
+---------
+31-JUL-18
+
+SQL> select NEXT_DAY(sysdate,'sunday') from dual;
+
+NEXT_DAY(
+---------
+15-JUL-18
+
+SQL> select sessiontimezone,current_date,current_timestamp from dual;
+
+SESSIONTIMEZONE
+---------------------------------------------------------------------------
+CURRENT_D
+---------
+CURRENT_TIMESTAMP
+---------------------------------------------------------------------------
++05:30
+12-JUL-18
+12-JUL-18 03.20.35.000000 PM +05:30
+
+
+SQL> select extract(year from sysdate) from dual;
+
+EXTRACT(YEARFROMSYSDATE)
+------------------------
+                    2018
+
+SQL> select extract(month from date '2011-04-01') from dual;
+
+EXTRACT(MONTHFROMDATE'2011-04-01')
+----------------------------------
+                                 4
+
+
+
+
+SQL> select extract(year from student_dob) from student_master;
+
+EXTRACT(YEARFROMSTUDENT_DOB)
+----------------------------
+                        1980
+                        1981
+                        1982
+                        1979
+                        1983
+                        1981
+                        1982
+                        1981
+                        1980
+                        1980
+                        1980
+
+EXTRACT(YEARFROMSTUDENT_DOB)
+----------------------------
+                        1980
+                        1980
+                        1985
+                        1981
+                        1980
+                        1980
+                        1980
+                        1981
+                        1980
+                        1980
+
+21 rows selected.
+
+SQL> select staff_name,trunc(sysdate)-trunc(hiredate) from staff_master;
+
+STAFF_NAME
+--------------------------------------------------
+TRUNC(SYSDATE)-TRUNC(HIREDATE)
+------------------------------
+Arvind
+                          5657
+
+Shyam
+                          5989
+
+Mohan
+                          6018
+
+
+STAFF_NAME
+--------------------------------------------------
+TRUNC(SYSDATE)-TRUNC(HIREDATE)
+------------------------------
+Anil
+                          6332
+
+John
+                          6381
+
+Allen
+                          6289
+
+
+STAFF_NAME
+--------------------------------------------------
+TRUNC(SYSDATE)-TRUNC(HIREDATE)
+------------------------------
+Smith
+                          5966
+
+Raviraj
+                          5661
+
+Rahul
+                          5327
+
+
+STAFF_NAME
+--------------------------------------------------
+TRUNC(SYSDATE)-TRUNC(HIREDATE)
+------------------------------
+Ram
+                          6020
+
+
+10 rows selected.
+
+SQL> select staff_name,trunc(sysdate)-trunc(27-07-2018) from staff_master;
+
+STAFF_NAME                                         TRUNC(SYS
+-------------------------------------------------- ---------
+Arvind                                             31-DEC-23
+Shyam                                              31-DEC-23
+Mohan                                              31-DEC-23
+Anil                                               31-DEC-23
+John                                               31-DEC-23
+Allen                                              31-DEC-23
+Smith                                              31-DEC-23
+Raviraj                                            31-DEC-23
+Rahul                                              31-DEC-23
+Ram                                                31-DEC-23
+
+10 rows selected.
+
+SQL> select trunc(sysdate)-trunc(27-07-2018) from dual;
+
+TRUNC(SYS
+---------
+31-DEC-23
+
+SQL> select trunc(12-07-2018)-trunc(27-07-2018) from dual;
+
+TRUNC(12-07-2018)-TRUNC(27-07-2018)
+-----------------------------------
+                                -15
+
+SQL> select trunc(26-07-2018)-trunc(12-07-2018) from dual;
+
+TRUNC(26-07-2018)-TRUNC(12-07-2018)
+-----------------------------------
+                                 14
+
+
+
+
+SQL> select student_code ,(book_actual_return_date-book_expected_return_date) as Payable_days from
+
+no rows selected
+
+SQL> select student_code ,(book_actual_return_date-book_expected_return_date) as Payable_days from
+
+STUDENT_CODE PAYABLE_DAYS
+------------ ------------
+        1012
+
+SQL> select student_code ,(12-07-2018-26-07-2018) as Payable_days from book_transactions where book
+
+STUDENT_CODE PAYABLE_DAYS
+------------ ------------
+        1012        -4064
+
+SQL> select student_code ,(26-07-2018-12-07-2018) as Payable_days from book_transactions where book
+
+STUDENT_CODE PAYABLE_DAYS
+------------ ------------
+        1012        -4036
+
+
+
+SQL> select (12-07-2018-26-07-2018) from dual;
+
+(12-07-2018-26-07-2018)
+-----------------------
+                  -4064
+
+
+
+
+SQL> select student_code ,(book_actual_return_date-book_expected_return_date) as Payable_days from
+
+STUDENT_CODE PAYABLE_DAYS
+------------ ------------
+                        0
+        1009            0
+
+SQL> select student_code ,(book_actual_return_date-book_expected_return_date) as Payable_days from
+
+STUDENT_CODE PAYABLE_DAYS
+------------ ------------
+        1015
+
+SQL> select student_code ,(book_actual_return_date-book_expected_return_date) as Payable_days from
+
+STUDENT_CODE PAYABLE_DAYS
+------------ ------------
+        1015
+
+SQL> select * from book_transactions;
+
+ BOOK_CODE STUDENT_CODE STAFF_CODE BOOK_ISSU BOOK_EXPE BOOK_ACTU
+---------- ------------ ---------- --------- --------- ---------
+  10000006         1012            02-FEB-11 09-FEB-11
+  10000008                  100006 10-MAR-11 17-MAR-11 15-MAR-11
+  10000009                  100010 01-APR-11 08-APR-11 10-APR-11
+  10000004         1015            12-FEB-11 19-FEB-11
+  10000005                  100007 14-MAR-11 21-MAR-11 21-MAR-11
+  10000007                  100007 01-APR-11 07-APR-11 06-APR-11
+  10000007                  100006 01-APR-10 07-APR-10 06-APR-10
+  10000005         1009            31-MAY-11 08-JUN-11 08-JUN-11
+
+8 rows selected.
+
+
+\
+SQL>  Select student_code, round((sysdate-student_dob) / 365.25) As Age from student_master;
+
+STUDENT_CODE        AGE
+------------ ----------
+        1001         39
+        1002         37
+        1003         36
+        1004         39
+        1005         35
+        1006         37
+        1007         36
+        1008         37
+        1009         38
+        1010         38
+        1011         38
+
+STUDENT_CODE        AGE
+------------ ----------
+        1012         38
+        1013         38
+        1014         33
+        1015         37
+        1016         38
+        1017         38
+        1018         38
+        1019         37
+        1020         38
+        1021         39
+
+21 rows selected.
+
+SQL>  Select student_code, extract(years from student_dob)-extract(years from sysdate) As Age from student_master;
+ Select student_code, extract(years from student_dob)-extract(years from sysdate) As Age from student_master
+                                    *
+ERROR at line 1:
+ORA-00907: missing right parenthesis
+
+
+SQL>  Select student_code, extract(year from student_dob)-extract(year from sysdate) As Age from student_master;
+
+STUDENT_CODE        AGE
+------------ ----------
+        1001        -38
+        1002        -37
+        1003        -36
+        1004        -39
+        1005        -35
+        1006        -37
+        1007        -36
+        1008        -37
+        1009        -38
+        1010        -38
+        1011        -38
+
+STUDENT_CODE        AGE
+------------ ----------
+        1012        -38
+        1013        -38
+        1014        -33
+        1015        -37
+        1016        -38
+        1017        -38
+        1018        -38
+        1019        -37
+        1020        -38
+        1021        -38
+
+21 rows selected.
+
+
+
+
+SQL> select staff_code,hiredate from staff_master where hiredate=to_date('september 08,1981','Month DD,YYYY');
+
+no rows selected
+
+SQL> select * from staff_master;
+
+STAFF_CODE STAFF_NAME                                         DESIGN_CODE
+---------- -------------------------------------------------- -----------
+ DEPT_CODE STAFF_DOB HIREDATE    MGR_CODE  STAFF_SAL
+---------- --------- --------- ---------- ----------
+STAFF_ADDRESS
+--------------------------------------------------------------------------------
+    100001 Arvind                                                     102
+        30 15-JAN-80 15-JAN-03     100006      17000
+Bangalore
+
+    100002 Shyam                                                      102
+        20 18-FEB-80 17-FEB-02     100007      20000
+Chennai
+
+STAFF_CODE STAFF_NAME                                         DESIGN_CODE
+---------- -------------------------------------------------- -----------
+ DEPT_CODE STAFF_DOB HIREDATE    MGR_CODE  STAFF_SAL
+---------- --------- --------- ---------- ----------
+STAFF_ADDRESS
+--------------------------------------------------------------------------------
+
+    100003 Mohan                                                      102
+        10 23-MAR-80 19-JAN-02     100006      24000
+Mumbai
+
+    100004 Anil                                                       102
+        20 22-APR-77 11-MAR-01     100006      20000
+
+STAFF_CODE STAFF_NAME                                         DESIGN_CODE
+---------- -------------------------------------------------- -----------
+ DEPT_CODE STAFF_DOB HIREDATE    MGR_CODE  STAFF_SAL
+---------- --------- --------- ---------- ----------
+STAFF_ADDRESS
+--------------------------------------------------------------------------------
+Hyderabad
+
+    100005 John                                                       106
+        10 22-MAY-76 21-JAN-01     100007      32000
+Bangalore
+
+    100006 Allen                                                      103
+
+STAFF_CODE STAFF_NAME                                         DESIGN_CODE
+---------- -------------------------------------------------- -----------
+ DEPT_CODE STAFF_DOB HIREDATE    MGR_CODE  STAFF_SAL
+---------- --------- --------- ---------- ----------
+STAFF_ADDRESS
+--------------------------------------------------------------------------------
+        30 22-JAN-80 23-APR-01     100005      42000
+Chennai
+
+    100007 Smith                                                      103
+        20 19-JUL-73 12-MAR-02     100005      62000
+Mumbai
+
+
+STAFF_CODE STAFF_NAME                                         DESIGN_CODE
+---------- -------------------------------------------------- -----------
+ DEPT_CODE STAFF_DOB HIREDATE    MGR_CODE  STAFF_SAL
+---------- --------- --------- ---------- ----------
+STAFF_ADDRESS
+--------------------------------------------------------------------------------
+    100008 Raviraj                                                    102
+        40 17-JUN-80 11-JAN-03     100006      18000
+Bangalore
+
+    100009 Rahul                                                      102
+        20 16-JAN-78 11-DEC-03     100006      22000
+Hyderabad
+
+STAFF_CODE STAFF_NAME                                         DESIGN_CODE
+---------- -------------------------------------------------- -----------
+ DEPT_CODE STAFF_DOB HIREDATE    MGR_CODE  STAFF_SAL
+---------- --------- --------- ---------- ----------
+STAFF_ADDRESS
+--------------------------------------------------------------------------------
+
+    100010 Ram                                                        103
+        30 17-JAN-79 17-JAN-02     100007      32000
+Bangalore
+
+
+10 rows selected.
+
+SQL> select staff_code,hiredate from staff_master where hiredate=to_date('17-JAN-02','Month DD,YYYY');
+select staff_code,hiredate from staff_master where hiredate=to_date('17-JAN-02','Month DD,YYYY')
+                                                                    *
+ERROR at line 1:
+ORA-01843: not a valid month
+
+
+SQL> select staff_code,hiredate from staff_master where hiredate=to_date('02-JAN-17','Month DD,YYYY');
+select staff_code,hiredate from staff_master where hiredate=to_date('02-JAN-17','Month DD,YYYY')
+                                                                    *
+ERROR at line 1:
+ORA-01843: not a valid month
+
+
+SQL> select staff_code,hiredate from staff_master where hiredate=to_date('JAN-17-2018','Month DD,YYYY');
+
+no rows selected
+
+SQL> select staff_code,hiredate from staff_master where hiredate=to_date('JAN-17-2015','Month DD,YYYY');
+
+no rows selected
+
+SQL> select staff_code,hiredate from staff_master where hiredate=to_date('Jjanuary-15-2003','Month DD,YYYY');
+select staff_code,hiredate from staff_master where hiredate=to_date('Jjanuary-15-2003','Month DD,YYYY')
+                                                                    *
+ERROR at line 1:
+ORA-01843: not a valid month
+
+
+SQL> select staff_code,hiredate from staff_master where hiredate=to_date('January-15-2003','Month DD,YYYY');
+
+STAFF_CODE HIREDATE
+---------- ---------
+    100001 15-JAN-03
+
+SQL> select to_timestamp(sysdate,'DD-MM-YY') from dual;
+
+TO_TIMESTAMP(SYSDATE,'DD-MM-YY')
+---------------------------------------------------------------------------
+12-JUL-18 12.00.00 AM
+
+SQL> select student_code,nvl(student_address,'not filled') from student_master;
+
+STUDENT_CODE
+------------
+NVL(STUDENT_ADDRESS,'NOTFILLED')
+--------------------------------------------------------------------------------
+        1001
+chennai
+
+        1002
+New Delhi
+
+        1003
+not filled
+
+
+STUDENT_CODE
+------------
+NVL(STUDENT_ADDRESS,'NOTFILLED')
+--------------------------------------------------------------------------------
+        1004
+Mumbai
+
+        1005
+Bangalore
+
+        1006
+Delhi
+
+
+STUDENT_CODE
+------------
+NVL(STUDENT_ADDRESS,'NOTFILLED')
+--------------------------------------------------------------------------------
+        1007
+Chennai
+
+        1008
+Bangalore
+
+        1009
+Bangalore
+
+
+STUDENT_CODE
+------------
+NVL(STUDENT_ADDRESS,'NOTFILLED')
+--------------------------------------------------------------------------------
+        1010
+Bangalore
+
+        1011
+Chennai
+
+        1012
+not filled
+
+
+STUDENT_CODE
+------------
+NVL(STUDENT_ADDRESS,'NOTFILLED')
+--------------------------------------------------------------------------------
+        1013
+Chennai
+
+        1014
+not filled
+
+        1015
+Mumbai
+
+
+STUDENT_CODE
+------------
+NVL(STUDENT_ADDRESS,'NOTFILLED')
+--------------------------------------------------------------------------------
+        1016
+not filled
+
+        1017
+not filled
+
+        1018
+New Delhi
+
+
+STUDENT_CODE
+------------
+NVL(STUDENT_ADDRESS,'NOTFILLED')
+--------------------------------------------------------------------------------
+        1019
+New Delhi
+
+        1020
+not filled
+
+        1021
+Chennai
+
+
+21 rows selected.
+
+
+
+
+SQL> select student_code,nvl2(student_address,'filled','notfilled') from student_master;
+
+STUDENT_CODE NVL2(STUD
+------------ ---------
+        1001 filled
+        1002 filled
+        1003 notfilled
+        1004 filled
+        1005 filled
+        1006 filled
+        1007 filled
+        1008 filled
+        1009 filled
+        1010 filled
+        1011 filled
+
+STUDENT_CODE NVL2(STUD
+------------ ---------
+        1012 notfilled
+        1013 filled
+        1014 notfilled
+        1015 filled
+        1016 notfilled
+        1017 notfilled
+        1018 filled
+        1019 filled
+        1020 notfilled
+        1021 filled
+
+21 rows selected.

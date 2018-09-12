@@ -1,0 +1,12 @@
+SQL> select staff_name, dept_code from staff_master where hiredate < '01-JAN-2013' and staff_sal between 12000 and 25000;
+
+STAFF_NAME                                          DEPT_CODE
+-------------------------------------------------- ----------
+Arvind                                                     30
+Shyam                                                      20
+Mohan                                                      10
+Anil                                                       20
+Raviraj                                                    40
+Rahul                                                      20
+
+6 rows selected.
